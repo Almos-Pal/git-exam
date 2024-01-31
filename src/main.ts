@@ -9,8 +9,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <button  id="btn" >Add new item</button>
 
     <ul id="list">
-    
     </ul>
+    <button  id="btn_min" >show the minimum value</button>
+    <div id="min_result"></div>
   </div>
 
 `;
@@ -34,5 +35,20 @@ document.getElementById("btn")?.addEventListener("click", () => {
       li.innerHTML = element.toString() + ",";
       list?.append(li);
     });
+  }
+});
+
+document.getElementById("btn_min")?.addEventListener("click", () => {
+  if (numberArray.length == 0) {
+    alert("empty array");
+  } else {
+    let min: number = numberArray[0];
+    numberArray.forEach((element) => {
+      if (min > element) {
+        min = element;
+      }
+    });
+    let res = document.getElementById("min_result") as HTMLElement;
+    res.innerHTML = min.toString();
   }
 });
