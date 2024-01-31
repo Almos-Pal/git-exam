@@ -10,8 +10,8 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
     <ul id="list">
     </ul>
-    <button  id="btn_min" >show the minimum value</button>
-    <div id="min_result"></div>
+    <button  id="btn_max" >show the maximum value</button>
+    <div id="max_result"></div>
   </div>
 
 `;
@@ -38,17 +38,17 @@ document.getElementById("btn")?.addEventListener("click", () => {
   }
 });
 
-document.getElementById("btn_min")?.addEventListener("click", () => {
+document.getElementById("btn_max")?.addEventListener("click", () => {
   if (numberArray.length == 0) {
     alert("empty array");
   } else {
-    let min: number = numberArray[0];
+    let max: number = numberArray[0];
     numberArray.forEach((element) => {
-      if (min > element) {
-        min = element;
+      if (max < element) {
+        max = element;
       }
     });
-    let res = document.getElementById("min_result") as HTMLElement;
-    res.innerHTML = min.toString();
+    let res = document.getElementById("max_result") as HTMLElement;
+    res.innerHTML = max.toString();
   }
 });
